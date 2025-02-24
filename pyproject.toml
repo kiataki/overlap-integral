@@ -2,10 +2,13 @@
 name = "overlap-integral"
 version = "0.1.0"
 description = "This package aims to compute the overlap integral between two probability density functions."
+long_description = "file: README.md"
+long_description_content_type = "text/markdown"
 authors = [{ name = "Matheus Bacigalupo Kiataki", email = "kiatakimatheus@gmail.com" }]
 license = { text = "MIT" }
 readme = "README.md"
 requires-python = ">=3.11"
+homepage = "https://github.com/kiataki/overlap-integral"  # Substitua pelo seu nome de usuário no GitHub
 
 dependencies = [
     "numpy>=1.21",
