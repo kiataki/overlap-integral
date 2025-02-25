@@ -1,6 +1,6 @@
 [project]
 name = "overlap-integral"
-version = "0.1.3"
+version = "0.1.4"
 description = "This package aims to compute the overlap integral between two probability density functions."
 long_description = "file: README.md"
 long_description_content_type = "text/markdown"
