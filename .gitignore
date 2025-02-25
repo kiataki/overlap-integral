@@ -1,3 +1,9 @@
+# tar.gz
+*.tar.gz
+
+# whl
+*.whl
+
 # Docker files
 Dockerfile
 docker-compose.yml
