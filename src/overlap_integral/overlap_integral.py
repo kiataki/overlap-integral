@@ -75,7 +75,7 @@ class OverlapIntegral:
         )
 
         fig.add_annotation(
-            text=r"$\theta = \int_{-\infty}^{\infty} \min(f(x), g(x)) \, dx$",
+            text=r"$\theta = \int_{a}^{b} \min(f(x), g(x)) \, dx$",
             xref="paper",
             yref="paper",
             x=0.8,
