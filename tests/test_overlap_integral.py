@@ -12,19 +12,19 @@ def main():
     metrics = OverlapIntegral()
 
     # Generate or load data
-    data1 = np.random.normal(loc=60, scale=1, size=1000)
-    data2 = np.random.normal(loc=65, scale=1.5, size=1000)
+    data1 = np.random.normal(loc=30, scale=1, size=1000)
+    data2 = np.random.normal(loc=30, scale=1.2, size=1000)
 
     # Choose PDF method: 'kde' or 'gaussian'
-    pdf_method = 'kde'
+    pdf_method = 'gaussian'
 
     # Get PDFs
     pdf_1 = metrics.get_pdf(data1, method=pdf_method)
     pdf_2 = metrics.get_pdf(data2, method=pdf_method)
 
     # Calculate overlap integral
-    lower_limit = min(np.min(data1), np.min(data2)) - 2
-    upper_limit = max(np.max(data1), np.max(data2))
+    lower_limit = min(np.min(data1), np.min(data2)) - 12 * max(np.std(data1), np.std(data2))
+    upper_limit = max(np.max(data1), np.max(data2)) + 12 * max(np.std(data1), np.std(data2))
     integral, error = metrics.overlap_integral(pdf_1, pdf_2, lower_limit, upper_limit)
 
     print(f"Overlap integral: {integral}")
