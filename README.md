@@ -76,14 +76,6 @@ pip install overlap-integral
 - Plotly
 - Kaleido
 
-## Usage
-
-To calculate the overlap integral, run the following command:
-
-```bash
-poetry run python tests/test_overlap_integral.py
-```
-
 ## License
 
 This project is licensed under the MIT License.
