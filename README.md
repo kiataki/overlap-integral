@@ -1,5 +1,7 @@
 # Overlap Integral Project
 
+[![PyPI version](https://badge.fury.io/py/overlap-integral.svg)](https://pypi.org/project/overlap-integral/)
+
 This project focuses on calculating the overlap integral between two probability density functions (PDFs). The overlap integral is a measure of similarity between two distributions and is used in various fields such as statistics, data science, etc. The code and data files in this project are designed to perform these calculations efficiently and accurately.
 
 ## Project Structure
