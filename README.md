@@ -79,3 +79,11 @@ pip install overlap-integral
 ## License
 
 This project is licensed under the MIT License.
+
+## Contribution 
+
+Feel free to submit issues or pull requests. Your contributions are welcome!
+
+## Contact 
+
+For questions or suggestions, please contact kiatakimatheus@gmail.com
