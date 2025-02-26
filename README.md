@@ -74,13 +74,13 @@ pip install overlap-integral
                 main()
     ```
 
-## Requirements
+## Dependencies
 
-- Python 3.11 or higher
-- NumPy
-- SciPy
-- Plotly
-- Kaleido
+- python >= 3.11
+- numpy>=1.21
+- scipy>=1.7
+- plotly>=5.3
+- kaleido==0.2.0
 
 ## License
 
