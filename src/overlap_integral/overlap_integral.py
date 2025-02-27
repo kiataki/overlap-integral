@@ -20,17 +20,20 @@ class OverlapIntegral:
         """Calculate the minimum value between two PDFs at x."""
         if not (callable(pdf_1) and callable(pdf_2)):
             raise ValueError("Both pdf_1 and pdf_2 must be callable functions")
-        return np.minimum(pdf_1(x), pdf_2(x))
+        return np.minimum(pdf_1(x), pdf_2(x)).item()
+    
+    def _integrand(self, x: float, pdf_1: callable, pdf_2: callable) -> float:
+        """Calculate the integrand for the overlap integral."""
+        return self.minimum_between_two_pdfs(x, pdf_1, pdf_2)
 
     def overlap_integral(self, pdf_1: callable, pdf_2: callable, lower_limit: float, upper_limit: float) -> tuple[float, float]:
         """Calculate the overlap integral between two PDFs over a specified range."""
         if not (callable(pdf_1) and callable(pdf_2)):
             raise ValueError("Both pdf_1 and pdf_2 must be callable functions")
-        integral, error = quad(lambda x: self.minimum_between_two_pdfs(x, pdf_1, pdf_2),
-                               lower_limit, upper_limit)
+        integral, error = quad(self._integrand, lower_limit, upper_limit, args=(pdf_1, pdf_2))
         return integral, error
 
-    def get_pdf(self, data: np.ndarray, method: str = 'kde', mu: float = None, sigma: float = None) -> callable:
+    def get_pdf(self, data: np.ndarray, pdf_type: str = 'kde', mu: float = None, sigma: float = None) -> callable:
         """
         Get a probability density function (PDF) based on the input data and method.
 
@@ -46,9 +49,9 @@ class OverlapIntegral:
         Raises:
             ValueError: If an unsupported PDF method is provided.
         """
-        if method == 'kde':
+        if pdf_type == 'kde':
             return self.pdf_from_kde(data)
-        elif method == 'gaussian':
+        elif pdf_type == 'gaussian':
             if mu is None or sigma is None:
                 mu, sigma = np.mean(data), np.std(data)
             return lambda x: self.pdf_gaussian(x, mu, sigma)
@@ -57,15 +60,15 @@ class OverlapIntegral:
 
     def plot_distributions(self, pdf_1: callable, pdf_2: callable, integral: float, error: float, x_range: tuple = (-10, 10)) -> go.Figure:
         """Plot the distributions and their overlap."""
-        x_overlap = np.linspace(x_range[0], x_range[1], 1000)
-        y_pdf_1 = pdf_1(x_overlap)
-        y_pdf_2 = pdf_2(x_overlap)
+        x_range = np.linspace(x_range[0], x_range[1], 1000)
+        y_pdf_1 = pdf_1(x_range)
+        y_pdf_2 = pdf_2(x_range)
         y_overlap = np.minimum(y_pdf_1, y_pdf_2)
 
         fig = go.Figure()
-        fig.add_trace(go.Scatter(x=x_overlap, y=y_pdf_1, mode='lines', name='f(x)', line=dict(color='blue')))
-        fig.add_trace(go.Scatter(x=x_overlap, y=y_pdf_2, mode='lines', name='g(x)', line=dict(color='orange')))
-        fig.add_trace(go.Scatter(x=x_overlap, y=y_overlap, fill='tozeroy', mode='none', name=r"$\theta$", fillcolor='rgba(0,100,80,0.2)'))
+        fig.add_trace(go.Scatter(x=x_range, y=y_pdf_1, mode='lines', name='f(x)', line=dict(color='blue')))
+        fig.add_trace(go.Scatter(x=x_range, y=y_pdf_2, mode='lines', name='g(x)', line=dict(color='orange')))
+        fig.add_trace(go.Scatter(x=x_range, y=y_overlap, fill='tozeroy', mode='none', name=r"$\theta$", fillcolor='rgba(0,100,80,0.2)'))
 
         fig.update_layout(
             title=f'Overlap Integral: {integral:.4f}; \n Error: {error:.4f}',
