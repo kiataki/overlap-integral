@@ -1,4 +1,4 @@
-# Overlap Integral Project
+# Overlap Integral Package
 
 [![PyPI version](https://img.shields.io/pypi/v/overlap-integral)](https://pypi.org/project/overlap-integral/)
 
@@ -6,7 +6,7 @@ This project focuses on calculating the overlap integral between two probability
 
 ![Overlap Integral](https://latex.codecogs.com/svg.image?\theta=\int_{a}^{b}min[f(x),g(x)]dx)
 
-The overlap integral is a measure of similarity between two distributions (f and g) and is used in various fields such as statistics, data science, etc. The code and data files in this project are designed to perform these calculations efficiently and accurately.
+The overlap integral is a measure of similarity between two distributions (f(x) and g(x)) and is used in various fields such as statistics, data science, etc. The package provides efficient methods for estimating PDFs using kernel density estimation (KDE) or Gaussian distributions.
 
 ## Project Structure
 
