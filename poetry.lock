@@ -267,10 +267,7 @@ dev = ["cython-lint (>=0.12.2)", "doit (>=0.36.0)", "mypy (==1.10.0)", "pycodest
 doc = ["intersphinx_registry", "jupyterlite-pyodide-kernel", "jupyterlite-sphinx (>=0.16.5)", "jupytext", "matplotlib (>=3.5)", "myst-nb", "numpydoc", "pooch", "pydata-sphinx-theme (>=0.15.2)", "sphinx (>=5.0.0,<8.0.0)", "sphinx-copybutton", "sphinx-design (>=0.4.0)"]
 test = ["Cython", "array-api-strict (>=2.0,<2.1.1)", "asv", "gmpy2", "hypothesis (>=6.30)", "meson", "mpmath", "ninja ; sys_platform != \"emscripten\"", "pooch", "pytest", "pytest-cov", "pytest-timeout", "pytest-xdist", "scikit-umfpack", "threadpoolctl"]
 
-[extras]
-dev = ["pytest"]
-
 [metadata]
 lock-version = "2.1"
-python-versions = ">=3.11"
-content-hash = "9c4c27fcdb92131880e670e9fcbd5d95ea87602e63e6d916ca30e23a23f0798c"
+python-versions = ">=3.12.3"
+content-hash = "bb19beed72f171c805d72f1e064fc101735f2add357ab0726af58b11ea58fde1"
