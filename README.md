@@ -77,9 +77,12 @@ pip install overlap-integral
 
     ```
 
-## Dependencies
 
-- python >= 3.11
+## Requirements
+
+- python >=3.12.3
+
+## Dependencies
 - numpy>=1.21
 - scipy>=1.7
 - plotly>=5.3
