@@ -6,7 +6,7 @@ This project focuses on calculating the overlap integral between two probability
 
 ![Overlap Integral](https://latex.codecogs.com/svg.image?\theta=\int_{a}^{b}min[f(x),g(x)]dx)
 
-The overlap integral is a measure of similarity between two distributions (f(x) and g(x)) and is used in various fields such as statistics, data science, etc. The package provides efficient methods for estimating PDFs using kernel density estimation (KDE) or Gaussian distributions.
+The overlap integral, also known as coefficient of overlap, is a measure of similarity between two PDFs (f(x) and g(x)) and is used in various fields such as statistics, data science, etc. Additionally, it corresponds to the common area under the two PDFs. The package provides efficient methods for estimating PDFs using kernel density estimation (KDE, a non-parametric way) or Gaussian distributions.
 
 ## Project Structure
 
